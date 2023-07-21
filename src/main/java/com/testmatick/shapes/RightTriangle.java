@@ -1,7 +1,7 @@
 package com.testmatick.shapes;
 
 public class RightTriangle extends Shape {
-    private static final String NAME = "трикутник";
+    public static final String NAME = "трикутник";
     private final Double cathetusOne;
     private final Double cathetusTwo;
     private final Double hypotenuse;

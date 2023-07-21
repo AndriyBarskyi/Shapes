@@ -2,10 +2,10 @@ package com.testmatick.shapes;
 
 public class Circle extends Shape {
 
-    private static final String NAME = "коло";
+    public static final String NAME = "коло";
     private final Double radius;
 
-    public Circle(Double radius, Color color) {
+    public Circle(Color color, Double radius) {
         super(color);
         this.radius = radius;
     }

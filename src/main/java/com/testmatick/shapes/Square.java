@@ -1,7 +1,7 @@
 package com.testmatick.shapes;
 
 public class Square extends Shape {
-    private static final String NAME = "квадрат";
+    public static final String NAME = "квадрат";
     private Double side;
 
     public Square(Color color, Double side) {

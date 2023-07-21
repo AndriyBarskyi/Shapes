@@ -1,13 +1,17 @@
 package com.testmatick.shapes;
 
 public class Trapezoid extends Shape {
-    private static final String NAME = "трапеція";
+    public static final String NAME = "трапеція";
     private Double sideOne;
     private Double sideTwo;
     private Double height;
 
-    protected Trapezoid(Color color) {
+    public Trapezoid(Color color, Double sideOne, Double sideTwo,
+        Double height) {
         super(color);
+        this.sideOne = sideOne;
+        this.sideTwo = sideTwo;
+        this.height = height;
     }
 
     public Double getArea() {
