@@ -7,7 +7,10 @@ import com.testmatick.shapes.Trapezoid;
 
 public interface AbstractShapeFactory {
     Circle getCircle();
+
     Square getSquare();
+
     Trapezoid getTrapezoid();
+
     RightTriangle getRightTriangle();
 }

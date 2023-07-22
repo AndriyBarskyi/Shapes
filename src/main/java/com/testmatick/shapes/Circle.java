@@ -1,5 +1,7 @@
 package com.testmatick.shapes;
 
+import java.text.DecimalFormat;
+
 public class Circle extends Shape {
 
     public static final String NAME = "коло";
@@ -17,9 +19,12 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return "Фігура: " + NAME +
-            ", площа: " + this.getArea() + MeasurementUnit.SQ_UNIT.naming +
-            ", радіус: " + radius + MeasurementUnit.UNIT.naming +
+            ", площа: " + decimalFormat.format(this.getArea()) + " "
+            + MeasurementUnit.SQ_UNIT.naming +
+            ", радіус: " + decimalFormat.format(radius) + " "
+            + MeasurementUnit.UNIT.naming +
             super.toString();
     }
 }

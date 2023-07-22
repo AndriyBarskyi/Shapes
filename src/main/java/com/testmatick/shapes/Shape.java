@@ -1,6 +1,5 @@
 package com.testmatick.shapes;
 
-
 public abstract class Shape {
     protected Color color;
 
@@ -15,6 +14,6 @@ public abstract class Shape {
     }
 
     @Override public String toString() {
-        return ", колір: " + color + ".";
+        return ", колір: " + color.naming + ".";
     }
 }

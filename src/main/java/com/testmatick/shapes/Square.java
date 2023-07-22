@@ -1,8 +1,10 @@
 package com.testmatick.shapes;
 
+import java.text.DecimalFormat;
+
 public class Square extends Shape {
     public static final String NAME = "квадрат";
-    private Double side;
+    private final Double side;
 
     public Square(Color color, Double side) {
         super(color);
@@ -15,9 +17,12 @@ public class Square extends Shape {
 
     @Override
     public String toString() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return "Фігура: " + NAME +
-            ", площа: " + this.getArea() + MeasurementUnit.SQ_UNIT.naming +
-            ", довжина сторони: " + side + MeasurementUnit.UNIT.naming +
+            ", площа: " + decimalFormat.format(this.getArea()) + " "
+            + MeasurementUnit.SQ_UNIT.naming +
+            ", довжина сторони: " + decimalFormat.format(side) + " "
+            + MeasurementUnit.UNIT.naming +
             super.toString();
     }
 }

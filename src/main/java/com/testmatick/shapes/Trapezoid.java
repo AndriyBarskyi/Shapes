@@ -1,10 +1,12 @@
 package com.testmatick.shapes;
 
+import java.text.DecimalFormat;
+
 public class Trapezoid extends Shape {
     public static final String NAME = "трапеція";
-    private Double sideOne;
-    private Double sideTwo;
-    private Double height;
+    private final Double sideOne;
+    private final Double sideTwo;
+    private final Double height;
 
     public Trapezoid(Color color, Double sideOne, Double sideTwo,
         Double height) {
@@ -20,9 +22,12 @@ public class Trapezoid extends Shape {
 
     @Override
     public String toString() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return "Фігура: " + NAME +
-            ", площа: " + this.getArea() + MeasurementUnit.SQ_UNIT.naming +
-            ", висота: " + height + MeasurementUnit.UNIT.naming +
+            ", площа: " + decimalFormat.format(this.getArea()) + " "
+            + MeasurementUnit.SQ_UNIT.naming +
+            ", висота: " + decimalFormat.format(height) + " "
+            + MeasurementUnit.UNIT.naming +
             super.toString();
     }
 }

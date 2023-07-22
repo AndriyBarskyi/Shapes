@@ -1,5 +1,7 @@
 package com.testmatick.shapes;
 
+import java.text.DecimalFormat;
+
 public class RightTriangle extends Shape {
     public static final String NAME = "трикутник";
     private final Double cathetusOne;
@@ -25,9 +27,12 @@ public class RightTriangle extends Shape {
 
     @Override
     public String toString() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return "Фігура: " + NAME +
-            ", площа: " + this.getArea() + MeasurementUnit.SQ_UNIT.naming +
-            ", гіпотенуза: " + hypotenuse + MeasurementUnit.UNIT.naming +
+            ", площа: " + decimalFormat.format(this.getArea()) + " "
+            + MeasurementUnit.SQ_UNIT.naming +
+            ", гіпотенуза: " + decimalFormat.format(hypotenuse) + " "
+            + MeasurementUnit.UNIT.naming +
             super.toString();
     }
 }
