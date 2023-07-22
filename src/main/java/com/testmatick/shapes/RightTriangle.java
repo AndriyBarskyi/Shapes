@@ -20,6 +20,14 @@ public class RightTriangle extends Shape {
         return hypotenuse;
     }
 
+    public Double getCathetusOne() {
+        return cathetusOne;
+    }
+
+    public Double getCathetusTwo() {
+        return cathetusTwo;
+    }
+
     @Override
     public Double getArea() {
         return cathetusOne * cathetusTwo / 2;

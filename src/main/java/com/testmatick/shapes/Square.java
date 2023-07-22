@@ -15,6 +15,10 @@ public class Square extends Shape {
         return side * side;
     }
 
+    public Double getSide() {
+        return side;
+    }
+
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");

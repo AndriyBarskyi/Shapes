@@ -17,6 +17,10 @@ public class Circle extends Shape {
         return Math.PI * Math.pow(radius, 2);
     }
 
+    public Double getRadius() {
+        return radius;
+    }
+
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");

@@ -8,6 +8,18 @@ public class Trapezoid extends Shape {
     private final Double sideTwo;
     private final Double height;
 
+    public Double getSideOne() {
+        return sideOne;
+    }
+
+    public Double getSideTwo() {
+        return sideTwo;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
     public Trapezoid(Color color, Double sideOne, Double sideTwo,
         Double height) {
         super(color);
