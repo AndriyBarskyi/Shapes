@@ -6,35 +6,48 @@ import java.util.Random;
 
 import com.testmatick.shapes.Shape;
 
+
 public class ShapesGenerator {
-    private static final Shapes[] shapeTypes = Shapes.values();
+    private static final Shapes[] SHAPE_TYPES = Shapes.values();
+    private static final int DEFAULT_MAX_SHAPES_AMOUNT = 50;
+    private static final Random RANDOM = new Random();
 
-    private static final Random random = new Random();
-    private static final Integer RANDOM_SHAPES_AMOUNT = random.nextInt(100);
-    private static final RandomShapeFactory randomShapeFactory =
-        new RandomShapeFactory();
+    private ShapesGenerator() {
+    }
 
-    public static List<Shape> generateRandomShapes() {
+    /**
+     * Generates a list of random shapes using the provided shape factory.
+     *
+     * @param shapeFactory   The AbstractShapeFactory to create shapes.
+     * @param maxShapesAmount The maximum number of shapes to generate.
+     *                        If null or negative, a default value of 50 will be used.
+     * @return List of randomly generated shapes.
+     * @throws IllegalArgumentException if an unknown shape type is encountered.
+     */
+    public static List<Shape> generateRandomShapes(AbstractShapeFactory shapeFactory, Integer maxShapesAmount) {
+        int shapesAmount = (maxShapesAmount != null && maxShapesAmount > 0) ? maxShapesAmount : DEFAULT_MAX_SHAPES_AMOUNT;
         List<Shape> shapes = new ArrayList<>();
-        for (int i = 0; i < RANDOM_SHAPES_AMOUNT + 1; ++i) {
-            Shapes randomType = shapeTypes[random.nextInt(shapeTypes.length)];
+
+        for (int i = 0; i < shapesAmount; ++i) {
+            int randomIndex = RANDOM.nextInt(SHAPE_TYPES.length);
+            Shapes randomShapeType = SHAPE_TYPES[randomIndex];
             Shape randomShape;
-            switch (randomType) {
-            case SQUARE:
-                randomShape = randomShapeFactory.getSquare();
-                break;
-            case RIGHT_TRIANGLE:
-                randomShape = randomShapeFactory.getRightTriangle();
-                break;
+
+            switch (randomShapeType) {
             case CIRCLE:
-                randomShape = randomShapeFactory.getCircle();
+                randomShape = shapeFactory.createCircle();
                 break;
             case TRAPEZOID:
-                randomShape = randomShapeFactory.getTrapezoid();
+                randomShape = shapeFactory.createTrapezoid();
+                break;
+            case SQUARE:
+                randomShape = shapeFactory.createSquare();
+                break;
+            case RIGHT_TRIANGLE:
+                randomShape = shapeFactory.createRightTriangle();
                 break;
             default:
-                throw new IllegalArgumentException(
-                    "Невідомий тип фігури: " + randomType);
+                throw new IllegalArgumentException("Невідомий тип фігури: " + randomShapeType);
             }
             shapes.add(randomShape);
         }

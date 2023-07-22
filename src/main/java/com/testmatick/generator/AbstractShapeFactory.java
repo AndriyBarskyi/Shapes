@@ -6,11 +6,11 @@ import com.testmatick.shapes.Square;
 import com.testmatick.shapes.Trapezoid;
 
 public interface AbstractShapeFactory {
-    Circle getCircle();
+    Circle createCircle();
 
-    Square getSquare();
+    Square createSquare();
 
-    Trapezoid getTrapezoid();
+    Trapezoid createTrapezoid();
 
-    RightTriangle getRightTriangle();
+    RightTriangle createRightTriangle();
 }
