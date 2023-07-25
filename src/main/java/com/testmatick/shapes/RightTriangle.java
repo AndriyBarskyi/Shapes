@@ -1,7 +1,9 @@
 package com.testmatick.shapes;
 
 import java.text.DecimalFormat;
+import lombok.Getter;
 
+@Getter
 public class RightTriangle extends Shape {
     public static final String NAME = "трикутник";
     private final Double cathetusOne;
@@ -10,22 +12,13 @@ public class RightTriangle extends Shape {
 
     public RightTriangle(Color color, Double cathetusOne, Double cathetusTwo) {
         super(color);
+        if (cathetusOne < 0.0 || cathetusTwo < 0.0) {
+            throw new IllegalArgumentException("Катети трикутника не можуть бути меншими нуля");
+        }
         this.cathetusOne = cathetusOne;
         this.cathetusTwo = cathetusTwo;
         this.hypotenuse =
             Math.sqrt(Math.pow(cathetusOne, 2) + Math.pow(cathetusTwo, 2));
-    }
-
-    public Double getHypotenuse() {
-        return hypotenuse;
-    }
-
-    public Double getCathetusOne() {
-        return cathetusOne;
-    }
-
-    public Double getCathetusTwo() {
-        return cathetusTwo;
     }
 
     @Override

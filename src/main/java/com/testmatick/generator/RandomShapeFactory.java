@@ -49,9 +49,6 @@ public class RandomShapeFactory implements AbstractShapeFactory {
     private final Color[] colors = Color.values();
 
     public RandomShapeFactory(Double maxLength) {
-        if (maxLength == null || maxLength <= 0) {
-            throw new IllegalArgumentException("Довжина (радіус) фігур не може бути від'ємним.");
-        }
         this.maxLength = maxLength;
     }
 
@@ -66,6 +63,7 @@ public class RandomShapeFactory implements AbstractShapeFactory {
     public Square createSquare() {
         return new Square(getRandomColor(), getRandomLength());
     }
+
 
     public Trapezoid createTrapezoid() {
         return new Trapezoid(getRandomColor(), getRandomLength(), getRandomLength(), getRandomLength());

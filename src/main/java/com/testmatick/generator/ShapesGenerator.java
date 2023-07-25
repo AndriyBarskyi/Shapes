@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.testmatick.shapes.Shape;
 
+import lombok.NonNull;
 
 public class ShapesGenerator {
     private static final Shapes[] SHAPE_TYPES = Shapes.values();
@@ -24,8 +25,8 @@ public class ShapesGenerator {
      * @return List of randomly generated shapes.
      * @throws IllegalArgumentException if an unknown shape type is encountered.
      */
-    public static List<Shape> generateRandomShapes(AbstractShapeFactory shapeFactory, Integer maxShapesAmount) {
-        int shapesAmount = (maxShapesAmount != null && maxShapesAmount > 0) ? maxShapesAmount : DEFAULT_MAX_SHAPES_AMOUNT;
+    public static List<Shape> generateRandomShapes(AbstractShapeFactory shapeFactory, int maxShapesAmount) {
+        int shapesAmount = (maxShapesAmount > 0) ? maxShapesAmount : DEFAULT_MAX_SHAPES_AMOUNT;
         List<Shape> shapes = new ArrayList<>();
 
         for (int i = 0; i < shapesAmount; ++i) {

@@ -2,6 +2,9 @@ package com.testmatick.shapes;
 
 import java.text.DecimalFormat;
 
+import lombok.Getter;
+
+@Getter
 public class Circle extends Shape {
 
     public static final String NAME = "коло";
@@ -9,16 +12,15 @@ public class Circle extends Shape {
 
     public Circle(Color color, Double radius) {
         super(color);
+        if (radius < 0.0) {
+            throw new IllegalArgumentException("Радіус трапеції не може бути меншими нуля");
+        }
         this.radius = radius;
     }
 
     @Override
     public Double getArea() {
         return Math.PI * Math.pow(radius, 2);
-    }
-
-    public Double getRadius() {
-        return radius;
     }
 
     @Override
